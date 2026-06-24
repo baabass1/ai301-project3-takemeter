@@ -390,3 +390,14 @@ Specific uses included:
 4. Assisting with README organization and documentation formatting.
 
 All final labeling decisions, dataset construction, model training, evaluation, and project submission decisions were completed by me.
+
+
+# Model Checkpoint Access
+
+Due to GitHub file size limitations, the trained DistilBERT model checkpoints (`takemeter-model`) are not included in this repository.
+
+Access to the trained model files is available here:
+
+https://drive.google.com/drive/folders/1oKHxxS_WolsRwVPATSTGqC-QZho_59ye?usp=sharing
+
+The notebook (`takemeter.ipynb`) contains the complete training pipeline and can be used to reproduce the model from the provided dataset.
