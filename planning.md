@@ -130,3 +130,19 @@ Performance will be measured on a held-out test set.
 ## Success Criteria
 
 The project will be considered successful if the classifier can accurately distinguish between media, goal_clip, and stats posts and provide meaningful insight into the strengths and weaknesses of fine-tuning compared to a zero-shot baseline.
+
+
+A model will be considered "good enough" if it achieves at least **75% test accuracy** while demonstrating the ability to correctly classify examples from all three categories (media, goal_clip, and stats). In addition to overall accuracy, precision, recall, and F1-score will be reviewed to ensure the model is not simply predicting the majority class.
+
+---
+
+## AI Tool Plan
+
+AI tools will be used as development and analysis assistants throughout the project. Planned uses include:
+
+* Assisting with debugging Python code used for data collection, preprocessing, and model training.
+* Helping identify potential edge cases and ambiguous examples during label development.
+* Supporting error analysis by identifying patterns among incorrect predictions after evaluation.
+* Assisting with documentation and organization of project findings.
+
+All final labeling decisions, dataset construction, model evaluation, and interpretation of results will be completed and verified by the student.
