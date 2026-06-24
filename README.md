@@ -83,6 +83,17 @@ soccer_dataset.csv
 
 ---
 
+## Dataset File
+
+The final labeled dataset used for training and evaluation is included in this repository as:
+
+`soccer_dataset.csv`
+
+The dataset contains 235 manually labeled r/soccer posts across three categories: media, goal_clip, and stats.
+
+
+---
+
 # Dataset Statistics
 
 | Label     | Count |
@@ -346,6 +357,64 @@ Confidence: 0.41
 Analysis:
 
 The model failed to recognize record-setting statistical language because there were relatively few stats examples available during training.
+
+---
+
+## Demo Walkthrough
+
+Below are sample predictions from the fine-tuned DistilBERT model on the test set.
+
+---
+
+### Example Predictions (3–5 Samples)
+
+| Post                                                                    | Predicted Label | Confidence |
+| ----------------------------------------------------------------------- | --------------- | ---------- |
+| Norway's football team official photo for World Cup 2026                | media           | 0.81       |
+| USA [1] - 1 Germany - Antonee Robinson great goal 37'                   | media           | 0.39       |
+| Arsenal completed less than 200 passes in 120 minute match in UCL final | media           | 0.40       |
+| Lamine Yamal raises Palestine Flag during parade                        | media           | 0.85       |
+| 15 - Curaçao's Eloy Room recorded 15 saves against Ecuador              | media           | 0.41       |
+
+---
+
+### One Correct Prediction (Explanation)
+
+**Post:**
+
+> Norway's football team official photo for World Cup 2026
+
+**Prediction:** media
+
+**Why it is correct:**
+
+This post is correctly classified as *media* because it describes a general soccer-related announcement rather than a goal highlight or statistical record. It matches the training pattern of news-style and descriptive posts.
+
+---
+
+### One Incorrect Prediction (Explanation)
+
+**Post:**
+
+> USA [1] - 1 Germany - Antonee Robinson great goal 37'
+
+**True Label:** goal_clip
+**Predicted Label:** media
+**Confidence:** 0.39
+
+**Why it is wrong:**
+
+The model incorrectly classified this as *media* because the dataset is heavily imbalanced toward the media class. As a result, the model tends to default to predicting media even when goal-specific language like “goal 37’” is present.
+
+---
+
+### Evaluation Summary
+
+* Fine-tuned DistilBERT Accuracy: **80.6%**
+* Zero-shot Groq Baseline Accuracy: **88.9%**
+
+Despite training, the fine-tuned model underperformed the baseline due to class imbalance and insufficient representation of minority classes (goal_clip and stats).
+
 
 ---
 
